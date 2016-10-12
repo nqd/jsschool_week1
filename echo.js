@@ -4,8 +4,8 @@ require('./helper')
 
 // const fs = require('fs').promise
 
-async function echo(args) {
-  console.log(args[2])
+async function echo(arg) {
+  console.log(arg)
 }
 
-echo(process.argv);
+echo(process.argv[2]);
