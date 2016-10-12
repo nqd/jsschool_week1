@@ -1,5 +1,10 @@
 #!/usr/bin/env babel-node
 
+/*
+ * - check for absolute path
+ * - print out error code
+ */
+
 require('./helper')
 
 const fs = require('fs')
