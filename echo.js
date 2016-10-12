@@ -5,13 +5,7 @@ require('./helper')
 // const fs = require('fs').promise
 
 async function echo(args) {
-  let argsStr = ''
-  args.forEach((arg) => {
-    argsStr = argsStr.concat(arg, ' ')
-  })
-  console.log(argsStr)
+  console.log(args[2])
 }
 
-const args = process.argv
-const argsArg = args.slice(2, args.length);
-echo(argsArg);
+echo(process.argv);
