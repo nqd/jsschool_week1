@@ -1,12 +1,17 @@
-#!/usr/bin/env node
+#!/usr/bin/env babel-node
 
 require('./helper')
-let fs = require('fs').promise
 
-async function echo() {
-    // Use 'await' in here
-    // Your implementation here
-    console.log(await fs.readFile(__filename, console.log))
+// const fs = require('fs').promise
+
+async function echo(args) {
+  let argsStr = ''
+  args.forEach((arg) => {
+    argsStr = argsStr.concat(arg, ' ')
+  })
+  console.log(argsStr)
 }
 
-echo()
+const args = process.argv
+const argsArg = args.slice(2, args.length);
+echo(argsArg);
