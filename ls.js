@@ -19,11 +19,13 @@ async function ls(loc) {
   fs.promise.readdir(filePath)
     .then((items) => {
       items.forEach((i) => {
-        fs.promise.lstat(i)
+        fs.promise.lstat(path.join(loc, i))
           .then((stat) => {
-            // console.log(stat.isDirectory())
-            if (!stat.isDirectory()) {
-              console.log(i)
+            if (stat.isDirectory()) {
+              // console.log(path.join(loc, i, '/'))
+              ls(path.join(loc, i))
+            } else {
+              console.log(path.join(loc, i))
             }
           })
       })
