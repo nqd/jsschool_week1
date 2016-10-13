@@ -26,5 +26,10 @@ Time spent: `<Number of hours spent>`
 
 ## Walkthrough Gif:
 
-`<Add your Walkthrough Gif here (by updating the image URL)>`
-![Video Walkthrough](...)
+### echo and cat
+
+![](https://raw.githubusercontent.com/nqd/jsschool_week1/master/gif/echo-cat.gif)
+
+### touch and ls
+
+### mkdir and rm
