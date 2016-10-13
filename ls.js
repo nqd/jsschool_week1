@@ -11,14 +11,21 @@ const fs = require('fs')
 const path = require('path')
 
 async function ls(loc) {
+  if (!loc) return
   let filePath = loc
   if (!path.isAbsolute(filePath)) {
     filePath = path.join(__dirname, filePath)
   }
   fs.promise.readdir(filePath)
-    .then((stats) => {
-      stats.forEach((i) => {
-        console.log(i)
+    .then((items) => {
+      items.forEach((i) => {
+        fs.promise.lstat(i)
+          .then((stat) => {
+            // console.log(stat.isDirectory())
+            if (!stat.isDirectory()) {
+              console.log(i)
+            }
+          })
       })
     })
     .catch((e) => {
