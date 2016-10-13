@@ -10,15 +10,16 @@ require('./helper')
 const fs = require('fs')
 const path = require('path')
 
-async function touch(file) {
-  let filePath = file
-  if (!path.isAbsolute(file)) {
-    filePath = path.join(__dirname, file)
+async function ls(loc) {
+  let filePath = loc
+  if (!path.isAbsolute(filePath)) {
+    filePath = path.join(__dirname, filePath)
   }
-  fs.promise.stat(filePath)
+  fs.promise.readdir(filePath)
     .then((stats) => {
-      // the file existing
-      fs.promise.utimes(filePath, new Date(), new Date())
+      stats.forEach((i) => {
+        console.log(i)
+      })
     })
     .catch((e) => {
       // the file not existing or access denied
@@ -30,4 +31,4 @@ async function touch(file) {
     })
 }
 
-touch(process.argv[2]);
+ls(process.argv[2]);
