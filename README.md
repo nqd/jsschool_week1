@@ -15,7 +15,7 @@ Time spent: `<Number of hours spent>`
 - [x] `cat.js` prints the contents of the first argument to stdout
 - [x] `touch.js` updates the modified date of the first argument
 - [x] `ls.js` recursively lists the files of the first argument
-- [ ] `mkdir.js` create a directory at the first argument
+- [x] `mkdir.js` create a directory at the first argument
 - [ ] `rm.js` deletes any file or directory at the first argument 
 
 ### Optionals
@@ -32,4 +32,7 @@ Time spent: `<Number of hours spent>`
 
 ### touch and ls
 
-### mkdir and rm
+### mkdir
+![](https://raw.githubusercontent.com/nqd/jsschool_week1/master/gif/mkdir.gif)
+
+### rm
