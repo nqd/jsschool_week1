@@ -10,7 +10,7 @@ require('./helper')
 const fs = require('fs')
 const path = require('path')
 
-async function ls(loc) {
+async function ls(loc, recursive) {
   if (!loc) return
   let filePath = loc
   if (!path.isAbsolute(filePath)) {
@@ -20,10 +20,11 @@ async function ls(loc) {
     .each((item) => {
       fs.promise.lstat(path.join(loc, item))
         .then((stat) => {
-          if (stat.isDirectory()) {
-            ls(path.join(loc, item))
-          } else {
+          if (!stat.isDirectory()) {
             console.log(path.join(loc, item))
+          }
+          if (stat.isDirectory() && recursive) {
+            ls(path.join(loc, item), recursive)
           }
         })
     })
@@ -37,4 +38,11 @@ async function ls(loc) {
     })
 }
 
-ls(process.argv[2]);
+let recursive = false
+if (process.argv.indexOf('-R') > 0) {
+  recursive = true;
+}
+
+console.log(recursive)
+
+ls(process.argv[2], recursive);
