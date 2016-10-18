@@ -10,18 +10,25 @@ require('./helper')
 const fs = require('fs').promise
 const path = require('path')
 
-async function rm(loc) {
-  if (!loc) return
-  let dirPath = loc
-  if (!path.isAbsolute(dirPath)) {
-    dirPath = path.join(__dirname, dirPath)
+function rm(loc) {
+  let filePath = loc
+  if (!path.isAbsolute(filePath)) {
+    filePath = path.join(__dirname, filePath)
   }
-  console.log(dirPath);
-
-  fs.rm(dirPath)
-    .catch((e) => {
-      console.log('Error:', e.code)
-    })
+  fs.lstat(filePath)
+  .then((stat) => {
+    if (!stat.isDirectory()) {
+      fs.unlink(filePath)
+      .catch((e) => {
+        throw e
+      })
+    } else {
+      console.log('Do not support rm folder yet')
+    }
+  })
+  .catch((e) => {
+    console.log('Error', e.code)
+  })
 }
 
 const loc = process.argv[2]
