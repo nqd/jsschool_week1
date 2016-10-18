@@ -2,21 +2,21 @@
 
 This is a CLI Utilities library for Node.js.
 
-Time spent: `<Number of hours spent>`
+Time spent: `10`
 
 ## Features
 
 ### Required
 
 - [x] Completed Requireds marked with `[x]`
-- [ ] Walkthrough Gif embedded in README
-- [ ] README `Time spent:` includes the number of hours spent on the assignment
+- [x] Walkthrough Gif embedded in README
+- [x] README `Time spent:` includes the number of hours spent on the assignment
 - [x] `echo.js` prints the first argument to stdout
 - [x] `cat.js` prints the contents of the first argument to stdout
 - [x] `touch.js` updates the modified date of the first argument
 - [x] `ls.js` recursively lists the files of the first argument
 - [x] `mkdir.js` create a directory at the first argument
-- [ ] `rm.js` deletes any file or directory at the first argument 
+- [x] `rm.js` deletes any file ~~or directory~~ at the first argument 
 
 ### Optionals
 
@@ -30,9 +30,16 @@ Time spent: `<Number of hours spent>`
 
 ![](https://raw.githubusercontent.com/nqd/jsschool_week1/master/gif/echo-cat.gif)
 
-### touch and ls
+### touch 
+
+![](https://raw.githubusercontent.com/nqd/jsschool_week1/master/gif/touch.gif)
+
+### ls
+
+![](https://raw.githubusercontent.com/nqd/jsschool_week1/master/gif/ls.gif)
 
 ### mkdir
+
 ![](https://raw.githubusercontent.com/nqd/jsschool_week1/master/gif/mkdir.gif)
 
 ### rm
